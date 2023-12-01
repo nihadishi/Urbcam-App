@@ -1,9 +1,14 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover', // Görüntüyü kaplama
+  },
   main: {
     height: '100%',
-    backgroundColor: '#F1F0EC',
     position: 'relative',
     zIndex:10
   },
@@ -38,14 +43,18 @@ export const styles = StyleSheet.create({
   },
   serviceItems:{
     width:"100%",
-    flexDirection:"row",
+    flexDirection:"column",
     justifyContent:"space-around",
-    borderRadius:10
+    borderRadius:10,
+    alignItems:"center",
+    gap:20
+    
   },
   serviceItem:{
     backgroundColor:"#00000010",
     borderRadius:10,
     objectFit:"cover",
+    marginTop:440,
     width:100,
     height:94,
     borderRadius:10,
@@ -56,7 +65,23 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.5,
     shadowRadius: 4,
     // 
-
+  },
+  serviceItem2:{
+    backgroundColor:"#00000010",
+    borderRadius:10,
+    objectFit:"cover",
+    width:"100%",
+    height:84,
+    borderRadius:10,
+    overflow:"hidden",
+    // yeni shadow
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    alignItems:"center",
+    justifyContent:"center"
+    // 
   },
   moreServices:{
     color:"#0064A8",

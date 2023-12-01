@@ -2,23 +2,44 @@ import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
-const ResultScreen = () => {
+const ResultScreen = ({ route }) => {
   const navigation = useNavigation();
+  const selectedImage = route.params.selectedImage;
   const handleNextPress = () => {
     navigation.navigate('DamageScreen');
   };
+
+  const renderDots = () => {
+    const dotStyle = {
+      width: 3.5,
+      height: 3.5,
+      borderRadius: 3.5,
+      backgroundColor: '#F1F0EC',
+      marginHorizontal: 1,
+    };
+
+    return (
+      <View style={{ flexDirection: 'row', width:300, flexWrap:"wrap", gap:4, marginTop:18, justifyContent:"space-between"}}>
+        
+        {[...Array(1900)].map((_, index) => (
+        <View key={index} style={dotStyle} />
+      ))}
+      </View>
+    );
+  };
+
   return (
     <View style={styles.container}>
+      <View>
       <Image
-        source={require('./img/afterai.jpeg')}
+         source={{ uri: selectedImage }}
         resizeMode="contain"
         style={styles.selectedImage}
       />
+      <View style={{position:"absolute"}}>{renderDots()}</View>
+        </View>
       <Text style={styles.title}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-        impedit quasi atque molestias eos dicta odio praesentium fugiat qui
-        necessitatibus tempore culpa id perspiciatis eum iste esse, temporibus
-        laborum assumenda!
+      The artificial intelligence has convincingly demonstrated the suitability of your photo for undergoing a survey
       </Text>
       <View
         style={{

@@ -3,6 +3,7 @@ import {
   Text,
   ScrollView,
   TouchableHighlight,
+  ImageBackground,
 } from 'react-native';
 import React, {useState} from 'react';
 import Footer from '../../../layouts/Footer/Footer';
@@ -22,6 +23,7 @@ const HomePage = ({navigation}) => {
         keyboardShouldPersistTaps="handled"
         style={{backgroundColor: '#fff', flex: 1}}
         contentContainerStyle={{flexGrow: 1}}>
+      <ImageBackground source={require("../../../assets/img/bgg.jpg")} style={styles.backgroundImage}>
         <View style={[styles.main, {height: screenHeight}]}>
           <View>
             <View style={styles.header}>
@@ -43,21 +45,32 @@ const HomePage = ({navigation}) => {
             </View>
             <ScrollView style={{height: screenHeight - 109}}>
               <View style={styles.topServices}>
-                <Text style={styles.serviceText}>Select the service:</Text>
+                {/* <Text style={styles.serviceText}>Select the service:</Text> */}
                 
                 <View style={styles.serviceItems}>
                   <TouchableHighlight
-                    onPress={() => {navigation.navigate("DetectScreen")}}
+                    onPress={() => {navigation.navigate("DamageScreen")}}
                     underlayColor="#014370"
-                    style={styles.serviceItem}>
+                    style={styles.serviceItem2}>
+                      <Text style={{color:"#006400", fontSize:28, fontWeight:"600"}}>Problem</Text>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                    onPress={() => {navigation.navigate("DamageScreen")}}
+                    underlayColor="#014370"
+                    style={styles.serviceItem2}>
+                      <Text style={{color:"#4B3621", fontSize:28, fontWeight:"600"}}>Survey</Text>
+                  </TouchableHighlight>
+                  <TouchableHighlight
+                    onPress={() => {navigation.navigate("DetectScreen")}}
+                    underlayColor="transparent"
+                   >
                     <Image
                       style={styles.serviceItem}
                       resizeMode="cover"
                       source={require('./img/camera.png')}
                     />
-                  </TouchableHighlight>
-                 
-                  <TouchableHighlight
+                  </TouchableHighlight> 
+                  {/* <TouchableHighlight
                     onPress={() => {navigation.navigate("SelectScreen")}}
                     underlayColor="#014370"
                     style={styles.serviceItem}>
@@ -66,13 +79,14 @@ const HomePage = ({navigation}) => {
                       resizeMode="cover"
                       source={require('./img/gallery.png')}
                     />
-                  </TouchableHighlight>
+                  </TouchableHighlight> */}
                 </View>
               </View>
             </ScrollView>
           </View>
-        <Footer value={1}/>
+        {/* <Footer value={1}/> */}
         </View>
+      </ImageBackground>
       </ScrollView>
     </>
   );

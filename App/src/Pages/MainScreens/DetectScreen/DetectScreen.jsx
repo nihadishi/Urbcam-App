@@ -17,7 +17,7 @@ const DetectScreen = () => {
     const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
   const handleNextPress = () => {
-    navigation.navigate('ResultScreen', {selectedImage });
+    navigation.navigate('AnalyzeScreen', {selectedImage });
   };
 
   async function requestCameraPermission() {
@@ -103,16 +103,6 @@ const DetectScreen = () => {
               placeholderTextColor={'black'}
               placeholder="Problem"
             />
-            <TextInput
-              style={styles.input}
-              placeholderTextColor={'black'}
-              placeholder="Survey"
-            />
-            <TextInput
-              style={styles.input}
-              placeholderTextColor={'black'}
-              placeholder="Problem"
-            />
           </View>
             <View
               style={{
@@ -122,7 +112,7 @@ const DetectScreen = () => {
               }}>
               <TouchableOpacity style={styles.buttonContainer} onPress={handleNextPress}>
                 <View style={styles.buttonInnerContainer}>
-                  <Text style={styles.buttonText}>Next</Text>
+                  <Text style={styles.buttonText}>Submit</Text>
                 </View>
               </TouchableOpacity>
             </View>

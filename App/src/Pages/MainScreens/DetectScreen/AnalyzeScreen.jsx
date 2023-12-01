@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, Animated, Easing } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, Animated, Easing, ImageBackground } from 'react-native';
 
 const AnalyzeScreen = ({ route }) => {
   const selectedImage = route.params.selectedImage;
@@ -9,7 +9,7 @@ const navigation = useNavigation();
   useEffect(() => {
     animateDots();
     setTimeout(() => {
-        navigation.navigate("ResultScreen")
+        navigation.navigate('ResultScreen', {selectedImage });
     }, 7000);
   }, []);
 
@@ -54,8 +54,9 @@ const navigation = useNavigation();
   };
 
   return (
+      <ImageBackground source={require("../../../assets/img/bgg.jpg")} style={styles.backgroundImage}>
     <View style={styles.container}>
-      <Text style={styles.title}>Zəhmət olmasa gözləyin...</Text>
+      <Text style={styles.title}>Please wait...</Text>
       {selectedImage && (
         <TouchableOpacity>
           <Image
@@ -67,6 +68,7 @@ const navigation = useNavigation();
         </TouchableOpacity>
       )}
     </View>
+      </ImageBackground>
   );
 };
 
@@ -76,7 +78,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#296D84',
   },
   title: {
     fontSize: 24,
@@ -90,6 +91,13 @@ const styles = StyleSheet.create({
     marginTop: 16,
     borderRadius: 8,
     backgroundColor: 'red',
+    borderWidth:10,
+  },
+  backgroundImage: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover', // Görüntüyü kaplama
   },
 });
 

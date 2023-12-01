@@ -9,7 +9,6 @@ import {
   Platform,
   TextInput,
 } from 'react-native';
-// import { TextInput } from 'react-native-gesture-handler';
 import {launchImageLibrary} from 'react-native-image-picker';
 
 const SelectScreen = () => {
@@ -54,16 +53,6 @@ const SelectScreen = () => {
             />
           </TouchableOpacity>
           <View style={styles.inputs}>
-            <TextInput
-              style={styles.input}
-              placeholderTextColor={'black'}
-              placeholder="Problem"
-            />
-            <TextInput
-              style={styles.input}
-              placeholderTextColor={'black'}
-              placeholder="Survey"
-            />
             <TextInput
               style={styles.input}
               placeholderTextColor={'black'}
