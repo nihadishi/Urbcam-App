@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
   PermissionsAndroid,
+  TextInput
 } from 'react-native';
 import {useCameraDevice, Camera} from 'react-native-vision-camera';
 import {useNavigation} from '@react-navigation/native';
@@ -16,7 +17,7 @@ const DetectScreen = () => {
     const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
   const handleNextPress = () => {
-    navigation.navigate('AnalyzeScreen', {selectedImage });
+    navigation.navigate('ResultScreen', {selectedImage });
   };
 
   async function requestCameraPermission() {
@@ -81,12 +82,12 @@ const DetectScreen = () => {
         onPress={() => {
           handletakePhoto();
         }}
-      ><Text style={{fontSize:20}}>Çək</Text></TouchableOpacity>
+      ><Text style={{fontSize:20}}>Click</Text></TouchableOpacity>
     </View>
   ) : (
     <>
       <View style={styles.container}>
-        <Text style={styles.title}>Seçiminiz</Text>
+        <Text style={styles.title}>Choose</Text>
         {selectedImage && (
           <>
           <TouchableOpacity onPress={()=>{setSelectedImage(null)}}>
@@ -96,6 +97,23 @@ const DetectScreen = () => {
               style={styles.selectedImage}
             />
             </TouchableOpacity>
+            <View style={styles.inputs}>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Problem"
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Survey"
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Problem"
+            />
+          </View>
             <View
               style={{
                 flexDirection: 'row',
@@ -104,7 +122,7 @@ const DetectScreen = () => {
               }}>
               <TouchableOpacity style={styles.buttonContainer} onPress={handleNextPress}>
                 <View style={styles.buttonInnerContainer}>
-                  <Text style={styles.buttonText}>Növbəti</Text>
+                  <Text style={styles.buttonText}>Next</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -121,7 +139,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#296D84',
+    backgroundColor: '#F1F0EC',
   },
   title: {
     fontSize: 24,
@@ -143,7 +161,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 52,
     width: 345,
-    height: 38,
+    height: 48,
     paddingTop: 6,
     paddingBottom: 8,
     paddingLeft: 24,
@@ -157,6 +175,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', // Flex direction set to row
     gap: 4,
     display: 'flex',
+    backgroundColor:"black"
   },
   buttonInnerContainer: {
     textAlign: 'center',
@@ -168,6 +187,20 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 24,
     // wordWrap: 'break-word',
+  },
+  inputs: {
+    width:"83%",
+    borderRadius:10,
+    flexDirection:"column",
+    gap:10,
+    marginTop:10
+  },
+  input: {
+    color: 'black',
+    borderWidth:1,
+    borderRadius:10,
+    textAlign:"center",
+    fontSize:20
   },
 });
 export default DetectScreen;

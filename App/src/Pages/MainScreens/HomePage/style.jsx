@@ -17,8 +17,8 @@ export const styles = StyleSheet.create({
   headerText:{
     fontSize:24,
     color:"#014370",
-    // fontWeight:"800",
-    fontFamily:"Nunito-Black"
+    fontWeight:"800",
+    fontFamily:"Nunito-ExtraBold"
   },
   topServices:{
     flexDirection: 'column',

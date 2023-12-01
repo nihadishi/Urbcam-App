@@ -145,7 +145,7 @@ const Routes = () => {
       {isConnected ? (
         true ? (
           <>
-            <Stack.Navigator initialRouteName="WelcomeScreen">
+            <Stack.Navigator initialRouteName="HomeScreen">
               {mainscreens.map(index => (
                 <Stack.Screen
                   key={index.name}

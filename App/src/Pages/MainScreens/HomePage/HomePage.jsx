@@ -32,7 +32,7 @@ const HomePage = ({navigation}) => {
                 }}>
                 <MenuSvg />
               </TouchableHighlight>
-              <Text style={styles.headerText}>Paşa Sığorta</Text>
+              <Text style={styles.headerText}>URB CAM</Text>
               <TouchableHighlight
                 underlayColor="transparent"
                 onPress={() => {
@@ -43,7 +43,7 @@ const HomePage = ({navigation}) => {
             </View>
             <ScrollView style={{height: screenHeight - 109}}>
               <View style={styles.topServices}>
-                <Text style={styles.serviceText}>Xidməti seçin:</Text>
+                <Text style={styles.serviceText}>Select the service:</Text>
                 
                 <View style={styles.serviceItems}>
                   <TouchableHighlight

@@ -30,7 +30,7 @@ const ResultScreen = () => {
           style={styles.buttonContainer}
           onPress={handleNextPress}>
           <View style={styles.buttonInnerContainer}>
-            <Text style={styles.buttonText}>Növbəti</Text>
+            <Text style={styles.buttonText}>Next</Text>
           </View>
         </TouchableOpacity>
       </View>
@@ -44,15 +44,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#296D84',
+    backgroundColor: '#F1F0EC',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
-    color: 'black',
-    marginHorizontal:30,
+    color: 'gray',
+    marginHorizontal:10,
     marginTop:10,
+    borderRadius:10,
+    borderWidth:1,
+    padding:20,
+    borderColor:"gray"
   },
   button: {
     backgroundColor: '#296D84',
@@ -62,19 +66,20 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 23,
   },
   selectedImage: {
     width: 300,
     height: 300,
     marginTop: 16,
     borderRadius: 8,
-    backgroundColor: 'red',
+    overlayColor:"#F1F0EC"
+
   },
   buttonContainer: {
     marginTop: 52,
     width: 345,
-    height: 38,
+    height: 58,
     paddingTop: 6,
     paddingBottom: 8,
     paddingLeft: 24,
@@ -85,7 +90,8 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row', // Flex direction set to row
+    flexDirection: 'row',
+    backgroundColor:"#000", 
     gap: 4,
     display: 'flex',
   },

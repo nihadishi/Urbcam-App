@@ -54,7 +54,7 @@ export const styles = StyleSheet.create({
       },
       checkButtonText: {
         color: '#000000',
-        fontSize: 15,
+        fontSize: 22,
         fontFamily: 'Noto Sans',
         fontWeight: '700',
       },

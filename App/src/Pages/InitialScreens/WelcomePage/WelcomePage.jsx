@@ -22,7 +22,7 @@ function WelcomePage({navigation}) {
               Sürətli diaqnoz,{'\n'}anında ödəniş!
             </Text>
             <TouchableHighlight style={styles.checkButton} underlayColor="transparent" onPress={()=>{navigation.navigate('HomeScreen')}}>
-              <Text style={styles.checkButtonText}>İndi yoxla</Text>
+              <Text style={styles.checkButtonText}>Start</Text>
             </TouchableHighlight>
           </View>
         </View>

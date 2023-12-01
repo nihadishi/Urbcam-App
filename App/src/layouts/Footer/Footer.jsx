@@ -47,7 +47,7 @@ const Footer = (value) => {
       <View style={styles.items}>
         <View style={styles.svg}>{select===1? <HomeSelected width={25} height={25} fill={'#000'} />:<Home width={25} height={25} fill={'#000'} />}
         </View>
-        <Text style={select===1? styles.footerTextSelected : styles.footerText}>Əsas</Text>
+        <Text style={select===1? styles.footerTextSelected : styles.footerText}>Main</Text>
       </View>
       </TouchableHighlight>
       {/* <TouchableHighlight underlayColor="transparent" onPress={()=>{navigation.navigate("RecentScreen")}}>
@@ -59,7 +59,7 @@ const Footer = (value) => {
       <TouchableHighlight underlayColor="transparent" onPress={()=>{navigation.navigate("ProfileScreen")}}>
       <View style={styles.items}>
         <View style={styles.svg}>{select===5? <ProfileSelected width={25} height={25} fill={'red'} />:<Profile width={25} height={25} fill={'red'} />}</View>
-        <Text style={select===5? styles.footerTextSelected : styles.footerText}>Profilim</Text>
+        <Text style={select===5? styles.footerTextSelected : styles.footerText}>Profile</Text>
       </View>
       </TouchableHighlight>
     </View>

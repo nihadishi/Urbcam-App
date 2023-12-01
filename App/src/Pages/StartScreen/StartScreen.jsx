@@ -11,7 +11,7 @@ function StartScreen() {
       style={{width: "100%",objectFit:"contain" }}
       source={require('../../assets/img/main_logo.png')}
     /> */}
-    <Text style={{fontSize:40}}>SALAM</Text>
+    <Text style={{fontSize:40, fontWeight:600}}>U R B C A M</Text>
     </View>
   );
 }

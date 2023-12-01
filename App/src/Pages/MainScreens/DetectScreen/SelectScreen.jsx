@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import React, {useEffect, useState} from 'react';
 import {
   View,
@@ -7,14 +7,16 @@ import {
   Image,
   StyleSheet,
   Platform,
+  TextInput,
 } from 'react-native';
+// import { TextInput } from 'react-native-gesture-handler';
 import {launchImageLibrary} from 'react-native-image-picker';
 
 const SelectScreen = () => {
   const navigation = useNavigation();
   const [selectedImage, setSelectedImage] = useState(null);
   const handleNextPress = () => {
-    navigation.navigate('AnalyzeScreen', {selectedImage});
+    navigation.navigate('ResultScreen', {selectedImage});
   };
 
   const handleSelectImage = () => {
@@ -41,35 +43,54 @@ const SelectScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Seçiminiz</Text>
+      <Text style={styles.title}>Your choice</Text>
       {selectedImage ? (
         <>
-         <TouchableOpacity onPress={handleSelectImage}>
-          <Image
-            source={{uri: selectedImage}}
-            resizeMode="contain"
-            style={styles.selectedImage}
-          />
-        </TouchableOpacity>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            width: 300,
-          }}>
-          <TouchableOpacity
-            style={styles.buttonContainer}
-            onPress={handleNextPress}>
-            <View style={styles.buttonInnerContainer}>
-              <Text style={styles.buttonText}>Növbəti</Text>
-            </View>
+          <TouchableOpacity onPress={handleSelectImage}>
+            <Image
+              source={{uri: selectedImage}}
+              resizeMode="contain"
+              style={styles.selectedImage}
+            />
           </TouchableOpacity>
-        </View>
+          <View style={styles.inputs}>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Problem"
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Survey"
+            />
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'black'}
+              placeholder="Problem"
+            />
+          </View>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              width: 300,
+            }}>
+            <TouchableOpacity
+              style={styles.buttonContainer}
+              onPress={handleNextPress}>
+              <View style={styles.buttonInnerContainer}>
+                <Text style={styles.buttonText}>Next</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </>
       ) : (
         <>
           <TouchableOpacity style={styles.button} onPress={handleSelectImage}>
-            <Text style={styles.buttonText}>Qaleriyadan şəkil seçin</Text>
+            <Text style={styles.buttonText}>
+              Select a photo from the gallery
+            </Text>
           </TouchableOpacity>
         </>
       )}
@@ -83,7 +104,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 16,
-    backgroundColor: '#296D84',
+    backgroundColor: '#F1F0EC',
   },
   title: {
     fontSize: 24,
@@ -92,7 +113,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   button: {
-    backgroundColor: '#296D84',
+    backgroundColor: 'black',
     padding: 10,
     borderRadius: 5,
     marginTop: 16,
@@ -111,7 +132,7 @@ const styles = StyleSheet.create({
   buttonContainer: {
     marginTop: 52,
     width: 345,
-    height: 38,
+    height: 48,
     paddingTop: 6,
     paddingBottom: 8,
     paddingLeft: 24,
@@ -119,7 +140,8 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'white',
+    borderColor: 'black',
+    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row', // Flex direction set to row
@@ -136,6 +158,20 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 24,
     // wordWrap: 'break-word',
+  },
+  inputs: {
+    width:"83%",
+    borderRadius:10,
+    flexDirection:"column",
+    gap:10,
+    marginTop:10
+  },
+  input: {
+    color: 'black',
+    borderWidth:1,
+    borderRadius:10,
+    textAlign:"center",
+    fontSize:20
   },
 });
 
